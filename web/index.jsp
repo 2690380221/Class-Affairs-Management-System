@@ -11,6 +11,6 @@
     <title>$Title$</title>
   </head>
   <body>
-  $END$dasd
+  $END$
   </body>
 </html>
