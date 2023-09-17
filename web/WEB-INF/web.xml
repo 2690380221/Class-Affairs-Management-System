@@ -12,7 +12,7 @@
 
     <servlet-mapping>
         <servlet-name>QueryController</servlet-name>
-        <url-pattern>/src/QueryController</url-pattern>
+        <url-pattern>/queryController</url-pattern>
     </servlet-mapping>
 
 

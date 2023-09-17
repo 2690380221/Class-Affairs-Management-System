@@ -8,14 +8,15 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<!-- cdn引入ElementUI组件库 -->
 <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/vue-resource/1.5.3/vue-resource.min.js"></script>
 <html>
 <head>
     <title>查询</title>
+
 </head>
 <body>
+
 <div id="app">
     <el-form ref="form" :model="form" label-width="80px">
         <el-form-item label="关键字">
@@ -43,6 +44,7 @@
         </el-form-item>
     </el-form>
 </div>
+
 <script type="text/javascript">
     const app = new Vue({
         el: '#app',
@@ -56,20 +58,11 @@
         },
         methods: {
             onSubmit() {
-                const formData = {
-                    name: this.form.name,
-                    region: this.form.region,
-                    date1: this.form.date1,
-                    date2: this.form.date2
-                };
-
-                // 发送POST请求到Servlet，将数据作为请求体发送
-                axios.post('/QueryController', formData,{
-
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded'
-                    },
-                   
+                this.$http.get('http://localhost:8080/un/queryController', {
+                    params: {
+                        name: this.form.name,
+                        kind: this.form.kind
+                    }
                 })
                     .then(response => {
                         // 处理响应，您可以根据需要进行处理

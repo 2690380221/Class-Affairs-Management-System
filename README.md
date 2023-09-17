@@ -1,7 +1,7 @@
 # Class-Affairs-Management-System
 前端:Vue+Element-UI+css 通过cdn导入，无需下载和安装
 
-axios实现jsp和servlet的交互
+Vue Resource，这是一个Vue.js官方的HTTP请求插件，用于进行HTTP请求
 
 tomcat版本：8.5.51
 
