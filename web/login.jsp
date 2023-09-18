@@ -67,9 +67,13 @@
                     }
                 })
                     .then(response => {
-                        // 处理响应，您可以根据需要进行处理
-
-                        console.log('响应数据:', response.msg);
+                        if (response.data && response.data.redirect) {
+                            // 根据后端返回的重定向URL来跳转
+                            window.location.href = response.data.redirect;
+                        } else {
+                            // 处理其他响应或错误
+                            console.log('响应数据:', response);
+                        }
                     })
                     .catch(error => {
                         // 处理请求错误
