@@ -2,10 +2,10 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--首先来解析namespace:命名空间，此属性通常用来映射Dao层接口.-->
-<mapper namespace="com.ks.mapper.QueryMapper">
+<mapper namespace="com.ks.mapper.LoginMapper">
     <!--id:对应Dao层接口方法名parameterType:指定输入参数类型-->
     <!--useGeneratedKeys:="true"把新增加的主键赋值到自己定义的keyProperty(id)中-->
-    <select id="queryUserByName" parameterType="String" resultType="com.ks.bean.Query">
-        select * from tb_user where userName=#{userName}
+    <select id="queryUserByName" parameterType="String" resultType="com.ks.bean.User">
+        select * from user where uName = #{userName}
     </select>
 </mapper>

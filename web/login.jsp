@@ -3,16 +3,17 @@
   User: 26903
   Date: 2023/9/15
   Time: 13:48
-  To change this template use File | Settings | File Templates.
+  To change this template use File | Settings | File  Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>页面</title>
-    <!-- cdn引入ElementUI样式 -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue-resource/1.5.3/vue-resource.min.js"></script>
 </head>
 
 
@@ -38,16 +39,15 @@
                             <el-button type="primary" @click="login">登录</el-button>
                         </el-col>
                     </el-form-item>
+                    <span id="msg"> ${msg} </span> <br>
                 </el-form>
+
             </el-card>
         </el-main>
     </el-container>
 </div>
 
-<!--cdn引入ElementUI组件必须先引入Vue-->
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-<!-- cdn引入ElementUI组件库 -->
-<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+
 <script type="text/javascript">
     const vm = new Vue({ // 配置对象 options
         // 配置选项(option)
@@ -60,10 +60,21 @@
         },
         methods: {
             login() {
-                // 在这里编写登录逻辑，可以使用this.loginForm.username和this.loginForm.password获取用户名和密码
-                // 发送请求，验证用户名和密码，跳转到登录后的页面或显示错误信息
-                // 示例：假设登录成功后跳转到/welcome页面
-                window.location.href = '/welcome'; // 请替换为您的实际登录成功后的页面
+                this.$http.get('http://localhost:8080/un/loginController', {
+                    params: {
+                        username: this.loginForm.username,
+                        password: this.loginForm.password
+                    }
+                })
+                    .then(response => {
+                        // 处理响应，您可以根据需要进行处理
+
+                        console.log('响应数据:', response.msg);
+                    })
+                    .catch(error => {
+                        // 处理请求错误
+                        console.error('请求错误:', error);
+                    });
             }
         }
     })

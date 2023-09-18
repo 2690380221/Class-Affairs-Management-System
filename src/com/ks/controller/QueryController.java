@@ -1,5 +1,7 @@
 package com.ks.controller;
 
+import com.ks.service.LoginService;
+
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,7 +11,16 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class QueryController extends HttpServlet {
+
+    //实例化对象
+
+
+
     @Override
+    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        super.service(req, resp);
+    }
+
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         doPost(req, resp);
     }
