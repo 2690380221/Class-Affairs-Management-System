@@ -9,7 +9,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>页面</title>
+    <title>登录</title>
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
@@ -42,6 +42,7 @@
                     <span id="msg"> ${msg} </span> <br>
                 </el-form>
 
+
             </el-card>
         </el-main>
     </el-container>
@@ -72,7 +73,7 @@
                             window.location.href = response.data.redirect;
                         } else {
                             // 处理其他响应或错误
-                            console.log('响应数据:', response);
+                            window.location.reload();
                         }
                     })
                     .catch(error => {

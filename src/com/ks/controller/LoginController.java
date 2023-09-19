@@ -28,11 +28,12 @@ public class LoginController extends HttpServlet {
         System.out.println("uid:" + user.getuId());
         if (user.getuId() >= 1) {//登录成功
             request.getSession().setAttribute("user", user);
-
+            //重定向到main.jsp
             String redirectUrl = "/un/main.jsp"; // 设置重定向URL
             response.setContentType("application/json");
             response.setCharacterEncoding("UTF-8");
             response.getWriter().write("{\"redirect\": \"" + redirectUrl + "\"}");
+
 
         } else if (user.getuId() == 0) {//密码错误
             request.getSession().setAttribute("msg", "密码错误");

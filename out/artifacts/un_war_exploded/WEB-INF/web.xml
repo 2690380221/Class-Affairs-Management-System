@@ -24,5 +24,15 @@
         <servlet-name>LoginController</servlet-name>
         <url-pattern>/loginController</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SortController</servlet-name>
+        <servlet-class>com.ks.controller.SortController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>SortController</servlet-name>
+        <url-pattern>/sortController</url-pattern>
+    </servlet-mapping>
 </web-app>
 

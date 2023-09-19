@@ -4,15 +4,13 @@ import com.ks.mapper.LoginMapper;
 import com.ks.util.*;
 import org.apache.ibatis.session.SqlSession;
 
-import java.util.function.LongFunction;
-
 /**
  *
  */
 public class LoginService {
     public User login(String uname, String upwd) {
         User user=new User();
-        if(StringUtil.isEmpty(uname)||StringUtil.isEmpty(upwd)){
+        if(StringUtil.isEmpty(uname)){
             user.setuId(-1);
             return user;
         }

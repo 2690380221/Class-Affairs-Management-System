@@ -15,8 +15,8 @@
     <!-- cdn引入ElementUI组件库 -->
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
-<body>
 
+<body>
 <div id="app">
     <el-row>
         <!-- 左侧功能选择栏 -->
