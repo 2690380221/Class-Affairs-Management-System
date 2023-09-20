@@ -31,4 +31,17 @@
     <delete id="delete" parameterType="int">
         DELETE FROM affair WHERE affairId = #{affairId}
     </delete>
+
+    <update id="reSorting" parameterType="int">
+        UPDATE affair
+        SET affairId = affairId - 1
+        WHERE affairId > #{affairId}
+    </update>
+
+    <select id="sortedAffairs" parameterType="int" resultType="com.ks.bean.Affair">
+        SELECT * FROM affair
+        WHERE sortId = #{sortId}
+        ORDER BY affairId ASC;
+    </select>
+
 </mapper>

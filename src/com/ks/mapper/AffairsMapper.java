@@ -13,4 +13,7 @@ public interface AffairsMapper {
     public int update(Map params);
 
     public int delete(int affairId);
+    public void reSorting(int affairId);
+
+    public List<Affair> sortedAffairs(int sortId);
 }

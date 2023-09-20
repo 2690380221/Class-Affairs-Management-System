@@ -52,4 +52,12 @@ public class AffairsService {
     public boolean delete(int affairId) {//通过id删除事务
         return aam.delete(affairId)>0;
     }
+
+    public void reSorting(int affairId) {
+        aam.reSorting(affairId);
+    }
+
+    public List<Affair> sortedAffairs(int sortId) {
+        return aam.sortedAffairs(sortId);
+    }
 }

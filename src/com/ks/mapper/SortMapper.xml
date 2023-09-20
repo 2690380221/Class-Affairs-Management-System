@@ -8,4 +8,8 @@
     <select id="getSorts"  resultType="com.ks.bean.Sort">
         select * from sort
     </select>
+
+    <select id="getNameById"  resultType="String">
+        SELECT sortName FROM sort WHERE sortId = #{sortId}
+    </select>
 </mapper>

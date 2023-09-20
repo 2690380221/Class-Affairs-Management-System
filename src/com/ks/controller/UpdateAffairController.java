@@ -12,7 +12,7 @@ import java.io.IOException;
 /**
  * 在modifyAffair.jsp中点击提交按钮交给这个servlet处理事务的更新
  */
-public class UpdateAffair extends HttpServlet {
+public class UpdateAffairController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         int affairId= Integer.parseInt(request.getParameter("affairId"));
 
