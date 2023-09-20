@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!--首先来解析namespace:命名空间，此属性通常用来映射Dao层接口.-->
+<mapper namespace="com.ks.mapper.AffairsMapper">
+    <!--id:对应Dao层接口方法名parameterType:指定输入参数类型-->
+    <!--useGeneratedKeys:="true"把新增加的主键赋值到自己定义的keyProperty(id)中-->
+    <select id="recordCount" resultType="int">
+        SELECT COUNT(*) FROM affair
+    </select>
+
+    <insert id="save" parameterType="com.ks.bean.Affair">
+        INSERT INTO affair (affairId, title, content, bfTime,sortId)
+        VALUES (#{affairId}, #{title}, #{content}, NOW(), #{sortId})
+    </insert>
+
+    <select id="affairsList" resultType="com.ks.bean.Affair">
+        SELECT * FROM affair
+    </select>
+
+    <select id="getAffair" resultType="com.ks.bean.Affair" parameterType="int">
+        SELECT * FROM affair where affairId=#{affairId}
+    </select>
+
+    <update id="update" parameterType="Map">
+        UPDATE affair
+        SET title = #{affair.title}, content = #{affair.content}, bfTime = NOW(), sortId = #{affair.sortId}
+        WHERE affairId = #{affairId}
+    </update>
+
+    <delete id="delete" parameterType="int">
+        DELETE FROM affair WHERE affairId = #{affairId}
+    </delete>
+</mapper>

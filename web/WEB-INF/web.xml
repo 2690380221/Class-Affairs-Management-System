@@ -34,5 +34,15 @@
         <servlet-name>SortController</servlet-name>
         <url-pattern>/sortController</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddAffairsController</servlet-name>
+        <servlet-class>com.ks.controller.AddAffairsController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddAffairsController</servlet-name>
+        <url-pattern>/addAffairsController</url-pattern>
+    </servlet-mapping>
 </web-app>
 

@@ -1,6 +1,6 @@
 package com.ks.service;
 import com.ks.bean.User;
-import com.ks.mapper.LoginMapper;
+import com.ks.mapper.UserMapper;
 import com.ks.util.*;
 import org.apache.ibatis.session.SqlSession;
 
@@ -16,7 +16,7 @@ public class LoginService {
         }
 
         SqlSession session=GetSqlSession.createsqlsession();
-        LoginMapper loginMapper=session.getMapper(LoginMapper.class);
+        UserMapper loginMapper=session.getMapper(UserMapper.class);
         user=loginMapper.queryUserByName(uname);
 
         if(user==null){
