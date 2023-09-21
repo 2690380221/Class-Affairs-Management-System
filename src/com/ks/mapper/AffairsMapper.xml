@@ -44,4 +44,19 @@
         ORDER BY affairId ASC;
     </select>
 
+    <select id="searchByConditions" resultType="com.ks.bean.Affair">
+        SELECT *
+        FROM affair
+        <where>
+            <if test="title != null">
+                AND title = #{title}
+            </if>
+            <if test="sort != null">
+                AND sort = #{sort}
+            </if>
+            <if test="time != null">
+                AND time &lt; #{time}
+            </if>
+        </where>
+    </select>
 </mapper>

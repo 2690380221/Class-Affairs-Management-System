@@ -60,4 +60,8 @@ public class AffairsService {
     public List<Affair> sortedAffairs(int sortId) {
         return aam.sortedAffairs(sortId);
     }
+
+    public List<Affair> searchByConditions(String title, String sort, String time) {
+        return aam.searchByConditions(title, sort, time);
+    }
 }

@@ -9,11 +9,13 @@ public interface AffairsMapper {
     public int recordCount();
     public int save(Affair aff);
     public List<Affair> affairsList();
-    Affair getAffair(int affairId);
+    public Affair getAffair(int affairId);
     public int update(Map params);
 
     public int delete(int affairId);
     public void reSorting(int affairId);
 
     public List<Affair> sortedAffairs(int sortId);
+
+    public List<Affair> searchByConditions(String title, String sort, String time);
 }

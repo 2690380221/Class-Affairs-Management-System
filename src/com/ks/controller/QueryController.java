@@ -1,6 +1,10 @@
 package com.ks.controller;
 
+import com.ks.bean.Affair;
+import com.ks.service.AffairsService;
+
 import java.io.IOException;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -8,26 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 
 
 public class QueryController extends HttpServlet {
-
-    //实例化对象
-
-
-
-    @Override
-    protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.service(req, resp);
-    }
-
-    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException,IOException {
         doPost(req, resp);
     }
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException,IOException {
         // 从前端接收表单数据
-        String name = request.getParameter("name");
-        String region = request.getParameter("region");
+        String title = request.getParameter("title");// 按标题查询
+        String sort = request.getParameter("sort");// 按类别查询
+        String time=request.getParameter("time");// 按发布时间查询
 
-        System.out.println(name);
-
+        AffairsService affairsService=new AffairsService();
+        List<Affair> results = affairsService.searchByConditions(title, sort, time);
+        request.setAttribute("results",results);
+        //TODO 跳转到 sortedAffairs.jsp
     }
 
 

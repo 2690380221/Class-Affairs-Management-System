@@ -7,4 +7,14 @@
     <delete id="deleteByAffairId" parameterType="int">
         DELETE FROM comment WHERE affairId = #{affairId}
     </delete>
+
+    <insert id="save" parameterType="com.ks.bean.Comment">
+        INSERT INTO comment (commentId, content, plTime, userId,affairId)
+        VALUES (#{commentId}, #{content}, NOW(),#{userId} , #{affairId})
+    </insert>
+
+    <select id="getCommentList" parameterType="int" resultType="com.ks.bean.Comment">
+        SELECT * FROM comment
+        WHERE affairId = #{affairId}
+    </select>
 </mapper>

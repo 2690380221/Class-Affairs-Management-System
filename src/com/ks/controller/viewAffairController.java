@@ -2,6 +2,7 @@ package com.ks.controller;
 
 import com.ks.bean.Affair;
 import com.ks.service.AffairsService;
+import com.ks.service.CommentService;
 import com.ks.service.SortService;
 
 import javax.servlet.ServletException;
@@ -19,7 +20,9 @@ public class viewAffairController extends HttpServlet {
         Affair affair=affairsService.getAffair(affairId);
         SortService sortService=new SortService();
         String sortName=sortService.getNameById(affair.getSortId());
+        CommentService commentService=new CommentService();
 
+        request.setAttribute("commentList",commentService.getCommentList(affairId));
         request.setAttribute("affair",affair);
         request.setAttribute("sortName",sortName);
 
