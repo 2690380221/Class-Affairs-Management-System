@@ -14,6 +14,7 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/element-ui/lib/index.js"></script>
     <script src="https://cdn.bootcdn.net/ajax/libs/vue-resource/1.5.3/vue-resource.min.js"></script>
+    <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
 </head>
 
 
@@ -39,7 +40,6 @@
                             <el-button type="primary" @click="login">登录</el-button>
                         </el-col>
                     </el-form-item>
-                    <span id="msg"> ${msg} </span> <br>
                 </el-form>
 
 
@@ -50,6 +50,7 @@
 
 
 <script type="text/javascript">
+
     const vm = new Vue({ // 配置对象 options
         // 配置选项(option)
         el: '#app',  // element: 指定用vue来管理页面中的哪个标签区域
@@ -61,6 +62,7 @@
         },
         methods: {
             login() {
+                const that=this;
                 this.$http.get('http://localhost:8080/un/loginController', {
                     params: {
                         username: this.loginForm.username,
@@ -68,17 +70,15 @@
                     }
                 })
                     .then(response => {
-                        if (response.data && response.data.redirect) {
+                        if (response.data.success) {
                             // 根据后端返回的重定向URL来跳转
-                            window.location.href = response.data.redirect;
+                           window.location.href ='index.jsp'
                         } else {
                             // 处理其他响应或错误
-                            window.location.reload();
+                            this.$message.error(response.body.msg);
                         }
                     })
                     .catch(error => {
-                        // 处理请求错误
-                        console.error('请求错误:', error);
                     });
             }
         }

@@ -34,5 +34,42 @@
         <servlet-name>SortController</servlet-name>
         <url-pattern>/sortController</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddAffairsController</servlet-name>
+        <servlet-class>com.ks.controller.AddAffairsController</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AddAffairsController</servlet-name>
+        <url-pattern>/addAffairsController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SortedAffairsController</servlet-name>
+        <servlet-class>com.ks.controller.SortedAffairsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SortedAffairsController</servlet-name>
+        <url-pattern>/sortedAffairsController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SetUrl</servlet-name>
+        <servlet-class>com.ks.util.SetUrl</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SetUrl</servlet-name>
+        <url-pattern>/setUrl</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>MaintainAffairsController</servlet-name>
+        <servlet-class>com.ks.controller.MaintainAffairsController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>MaintainAffairsController</servlet-name>
+        <url-pattern>/maintainAffairsController</url-pattern>
+    </servlet-mapping>
 </web-app>
 

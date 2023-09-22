@@ -16,6 +16,7 @@ public class MaintainAffairsController extends HttpServlet {
 
         List<Affair>list=affairsService.affairsList();
         request.setAttribute("affairList",list);
-        //  TODO 向maintain.jsp重定向
+
+        request.getRequestDispatcher("maintainAffairs.jsp").forward(request,response);
     }
 }

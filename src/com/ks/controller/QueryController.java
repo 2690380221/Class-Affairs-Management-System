@@ -23,8 +23,8 @@ public class QueryController extends HttpServlet {
 
         AffairsService affairsService=new AffairsService();
         List<Affair> results = affairsService.searchByConditions(title, sort, time);
-        request.setAttribute("results",results);
-        //TODO 跳转到 sortedAffairs.jsp
+        request.setAttribute("affairList",results);
+        request.getRequestDispatcher("affairList.jsp").forward(request,response);
     }
 
 
