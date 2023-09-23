@@ -28,6 +28,6 @@ public class AddAffairsController extends HttpServlet {
         }else {
             req.setAttribute("msg","添加失败");
         }
-        //TODO 设置重定向到的页面
+
     }
 }

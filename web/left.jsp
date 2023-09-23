@@ -6,16 +6,19 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <html>
 <head>
-
     <title>Make a choice please</title>
+    <link href="//unpkg.com/layui@2.7.6/dist/css/layui.css" rel="stylesheet">
+    <script src="//unpkg.com/layui@2.7.6/dist/layui.js"></script>
     <style type="text/css">
         <!--
         .STYLE1 {font-family: "宋体"}
         -->
 
     </style>
+
 </head>
 <body>
 <table width="169" height="300" border="1">

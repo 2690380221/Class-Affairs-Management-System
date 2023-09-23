@@ -25,7 +25,7 @@
 <div align="center">
     班级事务发布
     <p>
-    <form method="post" action="AffairsAdd" style="">
+    <form method="post" action="addAffairsController" style="">
         <font size="2">事务标题：</font>&nbsp;
         <input type="text" size="60" name="title">
         &nbsp;
