@@ -4,7 +4,7 @@
   User: 26903
   Date: 2023/9/16
   Time: 12:05
-  To change this template use File | Setings | File Templates.
+  To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -12,6 +12,27 @@
     <title>Inset title here</title>
     <link href="//unpkg.com/layui@2.7.6/dist/css/layui.css" rel="stylesheet">
     <script src="//unpkg.com/layui@2.7.6/dist/layui.js"></script>
+    <style>
+        /* 设置页面高度为100vh，垂直居中显示 */
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* 创建中央边框样式 */
+        .container {
+            border: 2px solid #ccc;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .layui-form-item {
+            margin-top: 30px;
+        }
+    </style>
 </head>
 
 <body>
@@ -31,40 +52,45 @@
 <%--    </form>--%>
 <%--</div>--%>
 
-<form class="layui-form" action="">
-    <div class="layui-form-item">
-        <label class="layui-form-label">关键字查询</label>
-        <div class="layui-input-block">
-            <input type="text" name="title" required  lay-verify="required" placeholder="请输入关键字" autocomplete="off" class="layui-input">
+<div class="container" style="height: 350px;width: 500px">
+
+    <form class="layui-form" method="post" action="queryController"  style="margin-top: 50px">
+        <div class="layui-form-item">
+            <label class="layui-form-label">关键字查询</label>
+            <div class="layui-input-block">
+                <input type="text" name="title" required  lay-verify="required" placeholder="请输入关键字" autocomplete="off" class="layui-input">
+            </div>
         </div>
-    </div>
-    <div class="layui-inline"> <!-- 注意：这一层元素并不是必须的 -->
-        <label class="layui-form-label">时间查询</label>
-        <div class="layui-input-block">
-            <input type="text" class="layui-input" id="test1" >
+        <div class="layui-form-item">
+
+            <label class="layui-form-label">时间查询</label>
+            <div class="layui-input-block">
+                <input type="text" class="layui-input" id="test1" >
+            </div>
+
         </div>
-    </div>
-    <br>
-    <div class="layui-form-item">
-        <label class="layui-form-label">事务类别号</label>
-        <div class="layui-input-block">
-            <select name="city" lay-verify="required">
-                <option value=""></option>
-                <option value="0">全部事务</option>
-                <option value="1">学习竞赛</option>
-                <option value="2">文体活动</option>
-                <option value="3">社会事务</option>
-                <option value="4">各类补助</option>
-            </select>
+        <div class="layui-form-item">
+            <label class="layui-form-label">事务类别号</label>
+            <div class="layui-input-block">
+                <select name="city" lay-verify="required">
+                    <option value=""></option>
+                    <option value="0">全部事务</option>
+                    <option value="1">学习竞赛</option>
+                    <option value="2">文体活动</option>
+                    <option value="3">社会事务</option>
+                    <option value="4">各类补助</option>
+                </select>
+            </div>
         </div>
-    </div>
-    <div class="layui-form-item">
-        <div class="layui-input-block">
-            <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
-            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        <div class="layui-form-item" style="margin-top: 40px">
+            <div class="layui-input-block" style="margin-left: 180px">
+                <button class="layui-btn" lay-submit lay-filter="formDemo">查询</button>
+                <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+
+</div>
 
 
 

@@ -11,6 +11,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="css/layui.css" rel="stylesheet">
+    <script src="layui.js"></script>
     <title>Insert title here</title>
 </head>
 
@@ -66,7 +68,7 @@
         </td>
         <td>
             <div align="center">
-                <img src="pic/view.gif" width="18" height="18" />
+                <i class="layui-icon layui-icon-note" style="font-size: 20px; color: #1E9FFF;"></i>
                 [
                 <a href="AffairDetail?affairId=<%=affair.getAffairId()%>">详细</a>]
             </div>

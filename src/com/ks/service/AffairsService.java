@@ -25,13 +25,16 @@ public class AffairsService {
     }//添加形事务时获取现在的条数以确定添加的id
 
     public boolean save(Affair aff) {  //添加事务时保存用
+
         try {
             int rowsInserted = aam.save(aff);
+
             return rowsInserted > 0;
         } catch (Exception e) {
             e.printStackTrace();
             return false; // 插入失败
         }
+
     }
 
     public List<Affair> affairsList() {//main.jsp浏览事务获取全部事务的列表

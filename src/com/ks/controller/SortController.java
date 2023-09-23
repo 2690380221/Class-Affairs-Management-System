@@ -19,7 +19,7 @@ public class SortController extends HttpServlet {
         SortService ssv=new SortService();
         List<Sort>list=ssv.getSorts();
         req.setAttribute("sortList",list);
-
+        req.getSession().setAttribute("sortList",list);
         req.getRequestDispatcher("addAffair.jsp").forward(req,resp);
         }
 }

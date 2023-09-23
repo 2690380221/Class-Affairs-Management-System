@@ -21,6 +21,9 @@
         <frame src = <%=url%> name="mainFrame" id="mainFrame" title="mainFrame" />
     </frameset>
 </frameset>
+<%
+    url=null;
+%>
 <body>
 
 </body>

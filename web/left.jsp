@@ -21,26 +21,7 @@
 
 </head>
 <body>
-<%--<table width="169" height="300" border="1">--%>
-<%--    <tr>--%>
-<%--        <td height="30"><div align="center" ><a href="sortController" target="mainFrame" onclick="setSessionData(this)"--%>
-<%--        >班级事务发布</a></div></td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td height="30"><div align="center"><a href="maintainAffairsController" target="mainFrame" onclick="setSessionData(this)">班级事务维护</a></div></td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td height="100">班级事务浏览--%>
-<%--            <p text-align="center" class="STYLE1"><a href="sortedAffairsController?sortId=0" target="mainFrame" onclick="setSessionData(this)">全 部 事 务</a></p>--%>
-<%--            <p text-align="center" class="STYLE1"><a href="sortedAffairsController?sortId=1" target="mainFrame" onclick="setSessionData(this)">学 习 竞 赛</a></p>--%>
-<%--            <p text-align="center" class="STYLE1"><a href="sortedAffairsController?sortId=2" target="mainFrame" onclick="setSessionData(this)">文 体 活 动</a></p>--%>
-<%--            <p text-align="center" class="STYLE1"><a href="sortedAffairsController?sortId=3" target="mainFrame" onclick="setSessionData(this)">社 会 事 务</a></p>--%>
-<%--            <p text-align="center" class="STYLE1"><a href="sortedAffairsController?sortId=4" target="mainFrame" onclick="setSessionData(this)">各 类 补 助</a></p></td>--%>
-<%--    </tr>--%>
-<%--    <tr>--%>
-<%--        <td height="30"><div align="center"><a href="query.jsp" target="mainFrame" onclick="setSessionData(this)">班级事务查询</a></div></td>--%>
-<%--    </tr>--%>
-<%--</table>--%>
+
 
 <ul style="height:100% " class="layui-nav layui-nav-tree" lay-filter="test">
     <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->

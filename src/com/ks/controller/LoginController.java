@@ -1,9 +1,11 @@
 package com.ks.controller;
 
 import com.ks.bean.Affair;
+import com.ks.bean.Sort;
 import com.ks.bean.User;
 import com.ks.service.AffairsService;
 import com.ks.service.LoginService;
+import com.ks.service.SortService;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -28,6 +30,11 @@ public class LoginController extends HttpServlet {
         System.out.println(upwd);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
+
+        SortService ssv=new SortService();
+        List<Sort>list=ssv.getSorts();
+        request.setAttribute("sortList",list);
+        request.getSession().setAttribute("sortList",list);
 
         User user = loginService.login(uname, upwd);
         System.out.println("uid:" + user.getuId());

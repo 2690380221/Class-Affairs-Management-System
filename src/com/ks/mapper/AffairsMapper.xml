@@ -11,8 +11,10 @@
 
     <insert id="save" parameterType="com.ks.bean.Affair">
         INSERT INTO affair (affairId, title, content, bfTime,sortId)
-        VALUES (#{affairId}, #{title}, #{content}, NOW(), #{sortId})
+        VALUES (#{affairId}, #{title}, #{content},NOW() , #{sortId})
     </insert>
+
+
 
     <select id="affairsList" resultType="com.ks.bean.Affair">
         SELECT * FROM affair

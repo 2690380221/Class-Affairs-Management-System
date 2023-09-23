@@ -71,5 +71,23 @@
         <servlet-name>MaintainAffairsController</servlet-name>
         <url-pattern>/maintainAffairsController</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ModifyAffairController</servlet-name>
+        <servlet-class>com.ks.controller.ModifyAffairController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ModifyAffairController</servlet-name>
+        <url-pattern>/modifyAffairController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ViewAffairController</servlet-name>
+        <servlet-class>com.ks.controller.ViewAffairController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ViewAffairController</servlet-name>
+        <url-pattern>/viewAffairController</url-pattern>
+    </servlet-mapping>
 </web-app>
 

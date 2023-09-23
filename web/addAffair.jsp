@@ -12,48 +12,87 @@
 <html>
 <head>
     <title>事务发布</title>
+    <link href="css/layui.css" rel="stylesheet">
+    <script src="layui.js"></script>
 </head>
 
 <body>
 <%
     Sort sort = new Sort();
-    List<Sort> list = (ArrayList<Sort>) request
+    List<Sort> list = (ArrayList<Sort>) request.getSession()
             .getAttribute("sortList");
+
 %>
 
+
 <br>
+
 <div align="center">
     班级事务发布
     <p>
-    <form method="post" action="addAffairsController" style="">
-        <font size="2">事务标题：</font>&nbsp;
-        <input type="text" size="60" name="title">
-        &nbsp;
-        <font size="2">&#26639;&#30446;&#65306;</font>&nbsp;
-        <select name="sort">
-            <%
-                int num = list.size();
-                for (int i = 0; i < num; i++) {
-                    sort = (Sort) list.get(i);
-            %>
+    <form  class="layui-form" method="post" action="addAffairsController" style="">
 
-            <option value=<%=String.valueOf(sort.getSortId())%>>
-                <%=sort.getSortName()%></option>
+    <div class="layui-form-item" style="width: 30%">
+        <label class="layui-form-label">事务标题：</label>
+        <div class="layui-input-block">
+            <input type="text" name="title" required lay-verify="required" placeholder="请输入标题" autocomplete="off" class="layui-input">
+        </div>
+    </div>
 
-            <%
-                }
-            %>
 
-        </select>
-        <p>
-            <textarea cols="80" rows="15" name="content"></textarea>
-            <br>
-            &nbsp; &nbsp; &nbsp;
-            <br>
-            <input type="submit" value="事务发布" name="add">
-        </p>
+    <div class="layui-form-item" style="width: 30%">
+        <label class="layui-form-label">事 务 类 型:</label>
+        <div class="layui-input-block" >
+            <select name="sort" lay-verify="required">
+                <option value="">请选择一个事务类型</option>
+                <%
+                    int num = list.size();
+                    for (int i = 0; i < num; i++) {
+                        sort = (Sort) list.get(i);
+                %>
+                <option value="<%= sort.getSortId() %>">
+                    <%= sort.getSortName() %>
+                </option>
+                <%
+                    }
+                %>
+            </select>
+        </div>
+    </div>
+
+
+    <div class="layui-form-item" style="width: 60%">
+
+        <div class="layui-input-block">
+            <textarea id="demo" style="display: none;" name="content"></textarea>        </div>
+    </div>
+
+    <div class="layui-form-item">
+        <div class="layui-input-block">
+            <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+            <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+        </div>
+    </div>
+
+
     </form>
 </div>
+
+
 </body>
+<script>
+    layui.use('layedit', function(){
+        var layedit = layui.layedit;
+        layedit.build('demo'); //建立编辑器
+    });
+    var msg = '<%=request.getAttribute("message")%>';
+    if(msg!="null"){
+        // alert(msg);
+        layer.msg(msg);
+        msg=null;
+    }
+
+</script>
+
 </html>
 

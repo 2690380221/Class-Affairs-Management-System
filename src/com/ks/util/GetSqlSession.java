@@ -18,7 +18,7 @@ public class GetSqlSession {
             String resource = "mybatis-config.xml";
             input = Resources.getResourceAsStream(resource);
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(input);
-            session = sqlSessionFactory.openSession();
+            session = sqlSessionFactory.openSession(true);
             return session;
         } catch (IOException e) {
             e.printStackTrace();

@@ -14,19 +14,30 @@ public class AddAffairsController extends HttpServlet {
         Affair aff=new Affair();
         AffairsService aas=new AffairsService();
         int num=aas.recordCount();
-        String title=req.getParameter("tltle");
-        String content=req.getParameter("content");
+        String title=new String(req.getParameter("title").getBytes("iso-8859-1"),"utf-8");
+
+        String content=new String(req.getParameter("content").getBytes("iso-8859-1"),"utf-8");
         int sortId= Integer.parseInt(req.getParameter("sort"));
+
+        System.out.println(num+1);
+        System.out.println(title);
+        System.out.println(content);
+        System.out.println(sortId);
+
         aff.setAffairId(++num);
         aff.setTitle(title);
         aff.setContent(content);
         aff.setSortId(sortId);
 
-        //TODO 可能要设置 bfTime
         if(aas.save(aff)){
-            req.setAttribute("msg","添加成功");
+            System.out.println("添加成功");
+            req.setAttribute("message", "添加成功");
+//            req.setCharacterEncoding("UTF-8");
+
+            req.getRequestDispatcher("addAffair.jsp").forward(req, resp);
         }else {
-            req.setAttribute("msg","添加失败");
+            System.out.println("添加失败");
+            req.setAttribute("message", "添加失败");
         }
 
     }

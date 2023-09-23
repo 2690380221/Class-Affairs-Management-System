@@ -12,6 +12,8 @@
 <html>
 <head>
   <title>Insert title here</title>
+  <link href="css/layui.css" rel="stylesheet">
+  <script src="layui.js"></script>
 </head>
 
 <body><br>
@@ -70,17 +72,17 @@
     </td>
     <td>
       <div align="center">
-        <img src="pic/modify.gif" width="18" height="18" />
+        <i class="layui-icon layui-icon-edit" style="font-size: 20px; color: #1E9FFF;"></i>
         [
-        <a href="AffairsModify?affairId=<%=affair.getAffairId()%>">编辑</a>]
+        <a href="modifyAffair.jsp?affairId=<%=affair.getAffairId()%>" >编辑</a>]
       </div>
     </td>
     <td>
       <div align="center">
-        <img src="pic/delete.gif" width="18" height="18" />
+        <i class="layui-icon layui-icon-delete" style="font-size: 20px; color: #1E9FFF;"></i>
         [
         <a onclick="return window.confirm('对这条事务的评论也将全部被删除，确认删除吗？');"
-           href="AffairsDelete?affairId=<%=affair.getAffairId()%>&sortId=<%=affair.getSortId()%>">删除</a>]
+           href="?affairId=<%=affair.getAffairId()%>&sortId=<%=affair.getSortId()%>">删除</a>]
       </div>
     </td>
   </tr>
@@ -88,6 +90,7 @@
     }
   %>
 
-</table></body>
+</table>
+</body>
 
 </html>

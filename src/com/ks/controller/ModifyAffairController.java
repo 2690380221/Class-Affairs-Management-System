@@ -15,7 +15,7 @@ import java.util.List;
 public class ModifyAffairController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         AffairsService affairsService=new AffairsService();
-        int affairId= Integer.parseInt(request.getParameter("affairId"));
+        int affairId= (int)request.getSession().getAttribute("affairId");
         Affair affair=affairsService.getAffair(affairId);
 
         SortService sortService=new SortService();
