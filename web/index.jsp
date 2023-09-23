@@ -16,7 +16,7 @@
 %>
 <frameset rows="60,*" cols="*" framespacing="2" frameborder="yes" border="2" bordercolor="#000066">
     <frame src="top.jsp" name="topFrame" scrolling="no" noresize="noresize" id="topFrame" title="topFrame" />
-    <frameset rows="200" cols="250,*" framespacing="2" frameborder="yes" border="2" bordercolor="#000066">
+    <frameset rows="200" cols="200,*" framespacing="2" frameborder="yes" border="2" bordercolor="#000066">
         <frame src="left.jsp" name="leftFrame" scrolling="no" noresize="noresize" id="leftFrame" title="leftFrame" />
         <frame src = <%=url%> name="mainFrame" id="mainFrame" title="mainFrame" />
     </frameset>
