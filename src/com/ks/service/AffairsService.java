@@ -1,6 +1,7 @@
 package com.ks.service;
 
 import com.ks.bean.Affair;
+import com.ks.bean.Query;
 import com.ks.mapper.AffairsMapper;
 import com.ks.util.GetSqlSession;
 import org.apache.ibatis.session.SqlSession;
@@ -45,11 +46,9 @@ public class AffairsService {
         return aam.getAffair(affairId);
     }
 
-    public boolean update(int affairId, Affair aff) {//编辑修改事务
-        HashMap<String, Object> params = new HashMap<String, Object>();
-        params.put("affairId", affairId);
-        params.put("affair ", aff);
-        return aam.update(params)>0;
+    public boolean update(Affair aff) {//编辑修改事务
+
+        return aam.update(aff)>0;
     }
 
     public boolean delete(int affairId) {//通过id删除事务
@@ -64,7 +63,7 @@ public class AffairsService {
         return aam.sortedAffairs(sortId);
     }
 
-    public List<Affair> searchByConditions(String title, String sort, String time) {
-        return aam.searchByConditions(title, sort, time);
+    public List<Affair> searchByConditions(Query query) {
+        return aam.searchByConditions(query);
     }
 }

@@ -26,8 +26,6 @@ public class LoginController extends HttpServlet {
         // 从前端接收表单数据
         String uname = request.getParameter("username");
         String upwd = request.getParameter("password");
-        System.out.println(uname);
-        System.out.println(upwd);
         response.setContentType("application/json");
         response.setCharacterEncoding("UTF-8");
 
@@ -36,18 +34,26 @@ public class LoginController extends HttpServlet {
         request.setAttribute("sortList",list);
         request.getSession().setAttribute("sortList",list);
 
+        System.out.println("name:"+uname);
+        System.out.println("pwd:"+upwd);
         User user = loginService.login(uname, upwd);
         System.out.println("uid:" + user.getuId());
         if (user.getuId() >= 1) {//登录成功
             request.getSession().setAttribute("user", user);
             //重定向到main.jsp
-            response.getWriter().write("{\"success\": \"" + true + "\"}");
+            if(user.getuType()==1){
+                request.setAttribute("left", "left_stu.jsp");
+            }else {
+                request.setAttribute("left", "left_admin.jsp");
+            }
 
+            request.getRequestDispatcher("index.jsp").forward(request,response);
         } else if (user.getuId() == 0) {//密码错误
-            response.getWriter().write("{\"msg\": \"" + "密码错误" + "\"}");
+            request.setAttribute("msg","密码错误");
+            request.getRequestDispatcher("login.jsp").forward(request,response);
         } else {//查无此人
-            response.getWriter().write("{\"msg\": \"" + "用户不存在" + "\"}");
+            request.setAttribute("msg","不是班级成员");
+            request.getRequestDispatcher("login.jsp").forward(request,response);
         }
-
     }
 }

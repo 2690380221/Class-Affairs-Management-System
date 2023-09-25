@@ -70,7 +70,7 @@
             <div align="center">
                 <i class="layui-icon layui-icon-note" style="font-size: 20px; color: #1E9FFF;"></i>
                 [
-                <a href="AffairDetail?affairId=<%=affair.getAffairId()%>">详细</a>]
+                <a href="viewAffairController?affairId=<%=affair.getAffairId()%>" onclick="setSessionData(this)">详细</a>]
             </div>
         </td>
     </tr>
@@ -80,5 +80,11 @@
 
 </table>
 </body>
-
+<script type="text/javascript">
+    function setSessionData(element) {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "setUrl?url="+element.getAttribute("href"), true);
+        xhr.send();
+    }
+</script>
 </html>

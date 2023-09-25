@@ -14,8 +14,8 @@
 <html>
 <head>
     <title>事务发布</title>
-    <link href="css/layui.css" rel="stylesheet">
-    <script src="layui.js"></script>
+    <link href="layui/css/layui.css" rel="stylesheet">
+    <script src="layui/layui.js"></script>
 </head>
 
 <body>
@@ -25,19 +25,20 @@
             .getAttribute("sortList");
     int affairId= Integer.parseInt(request.getParameter("affairId"));
     Affair affair=new AffairsService().getAffair(affairId);
+    request.setAttribute("affairId",affairId);
     request.getSession().setAttribute("affairId",affairId);
 %>
 <br>
 
 <div align="center">
-    班级事务发布
+    修改事务
     <p>
-    <form  class="layui-form" method="get" action="modifyAffairController" style="">
+    <form  class="layui-form" method="post" action="updateAffairController" style="">
 <%--        <div name="affairId" value=<%=affairId%>></div>--%>
         <div class="layui-form-item" style="width: 30%">
             <label class="layui-form-label">事务标题：</label>
             <div class="layui-input-block">
-                <input type="text" name="title" required lay-verify="" value=<%=affair.getTitle()%> autocomplete="off" class="layui-input">
+                <input type="text" name="title" required value=<%=affair.getTitle()%> autocomplete="off" class="layui-input">
             </div>
         </div>
 
@@ -63,11 +64,14 @@
         </div>
 
 
-        <div class="layui-form-item" style="width: 60%">
 
-            <div class="layui-input-block">
-                <textarea id="demo" style="display: none;" name="content"><%=affair.getContent()%></textarea>        </div>
-        </div>
+
+            <div class="layui-form-item" style="width: 60%">
+
+                <hr class="ws-space-16">
+                <textarea name="content" placeholder="主体内容" class="layui-textarea" style="width: 60%;box-shadow: 1px 1px 1px 1px  #999;height: 40%"><%=affair.getContent()%></textarea>
+            </div>
+
 
         <div class="layui-form-item">
             <div class="layui-input-block">
@@ -78,6 +82,14 @@
 
 
     </form>
+
+    <script type="text/javascript">
+        var msg="${requestScope.msg}";
+        if(msg!=""){
+            layer.msg(msg);
+        }
+    </script>
+
 </div>
 
 

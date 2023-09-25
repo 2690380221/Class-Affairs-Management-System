@@ -20,24 +20,24 @@ public class AddCommentController extends HttpServlet {
         AffairsService affairsService= new AffairsService();
         Affair affair=affairsService.getAffair(affairId);
         CommentService commentService=new CommentService();
-        String content=req.getParameter("content");
-        //TODO 从session 中获得用户对象
-        User user= (User) req.getSession().getAttribute("user");
+        String content = new String(req.getParameter("content").getBytes("iso-8859-1"), "utf-8");
 
+        User user= (User) req.getSession().getAttribute("user");
         Comment comment =new Comment();
         comment.setCommentId(0);// 在表中已经设置自动递增，插入0后自动排列到最下面
         comment.setContent(content);
         comment.setAffairId(affair.getAffairId());
         comment.setUserId(user.getuId());
+
         if(commentService.save(comment)){
             List<Comment>list=commentService.getCommentList(affairId);
             req.setAttribute("commentList",list);
             req.setAttribute("affair",affair);
             req.setAttribute("sortName",req.getParameter("sortName"));
-            //TODO 跳转到 viewAffair.jsp
+            req.getRequestDispatcher("viewAffair.jsp").forward(req,resp);
         } else {
             req.setAttribute("msg","添加评论失败");
-            //TODO 跳转到 viewAffair.jsp
+            req.getRequestDispatcher("viewAffair.jsp").forward(req,resp);
         }
     }
 }

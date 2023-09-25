@@ -12,8 +12,8 @@
 <html>
 <head>
     <title>事务发布</title>
-    <link href="css/layui.css" rel="stylesheet">
-    <script src="layui.js"></script>
+    <link href="layui/css/layui.css" rel="stylesheet">
+    <script src="layui/layui.js"></script>
 </head>
 
 <body>
@@ -63,8 +63,8 @@
 
     <div class="layui-form-item" style="width: 60%">
 
-        <div class="layui-input-block">
-            <textarea id="demo" style="display: none;" name="content"></textarea>        </div>
+        <hr class="ws-space-16">
+        <textarea name="content" placeholder="主体内容" class="layui-textarea" style="width: 60%;box-shadow: 1px 1px 1px 1px  #999;height: 40%"></textarea>
     </div>
 
     <div class="layui-form-item">
@@ -79,18 +79,29 @@
 </div>
 
 
+<script type="text/javascript">
+    var msg="${requestScope.message}";
+
+    if(msg!=""){
+        layer.msg(msg);
+    }
+
+
+</script>
+
+
 </body>
 <script>
     layui.use('layedit', function(){
         var layedit = layui.layedit;
         layedit.build('demo'); //建立编辑器
     });
-    var msg = '<%=request.getAttribute("message")%>';
-    if(msg!="null"){
-        // alert(msg);
-        layer.msg(msg);
-        msg=null;
-    }
+    <%--var msg = '<%=request.getAttribute("message")%>';--%>
+    <%--if(msg!="null"){--%>
+    <%--    // alert(msg);--%>
+    <%--    layer.msg(msg);--%>
+    <%--    msg=null;--%>
+    <%--}--%>
 
 </script>
 

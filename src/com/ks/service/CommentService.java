@@ -17,7 +17,7 @@ public class CommentService {
     }
 
     public boolean deleteByAffairId(int affairId) {
-        return commentMapper.deleteByAffairId(affairId)>0;
+        return commentMapper.deleteByAffairId(affairId)>=0;
     }
 
     public boolean save(Comment comment) {

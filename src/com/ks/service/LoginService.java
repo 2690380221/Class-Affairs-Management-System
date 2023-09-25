@@ -4,6 +4,8 @@ import com.ks.mapper.UserMapper;
 import com.ks.util.*;
 import org.apache.ibatis.session.SqlSession;
 
+import java.util.Arrays;
+
 /**
  *
  */
@@ -25,12 +27,18 @@ public class LoginService {
             return u;
         }
         if(!user.getuPwd().equals(upwd)){
-            System.out.println("p:"+user.getuPwd()+"  "+upwd);
+//            System.out.println(Arrays.toString(user.getuPwd().getBytes()));
+//            System.out.println(Arrays.toString(upwd.getBytes()));
+//            System.out.println("p:"+user.getuPwd()+"  "+upwd);
             user.setuId(0);
             return user;
         }
-
-
         return  user;
+    }
+    public  String getNameById(int id){
+        SqlSession session=GetSqlSession.createsqlsession();
+        UserMapper loginMapper=session.getMapper(UserMapper.class);
+
+        return loginMapper.getNameById(id);
     }
 }

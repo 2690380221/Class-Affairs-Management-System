@@ -8,4 +8,8 @@
     <select id="queryUserByName" parameterType="String" resultType="com.ks.bean.User">
         select * from user where uName = #{userName}
     </select>
+
+    <select id="getNameById" parameterType="int" resultType="String">
+        select uName from user where uId = #{id}
+    </select>
 </mapper>

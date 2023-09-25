@@ -10,81 +10,77 @@
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
-    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-    <script src="https://unpkg.com/element-ui/lib/index.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/vue-resource/1.5.3/vue-resource.min.js"></script>
-    <script src="https://unpkg.com/vue-router@4.0.15/dist/vue-router.global.js"></script>
+    <link href="layui/css/layui.css" rel="stylesheet">
+    <script src="layui/layui.js"></script>
 </head>
 
 
-<body>
-<div id="app">
-    <el-container style="height: 100vh;">
-        <el-main style="display: flex; justify-content: center; align-items: center;">
-            <el-card style="width: 400px; border: 1px solid #ccc; border-radius: 5px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);">
-                <el-form ref="loginForm" :model="loginForm" label-width="80px">
-                    <el-form-item label="用户名">
-                        <el-input v-model="loginForm.username"></el-input>
-                    </el-form-item>
-                    <el-form-item label="密码">
-                        <el-input type="password" v-model="loginForm.password"></el-input>
-                    </el-form-item>
-                    <el-form-item label="验证码">
-                        <!-- 添加验证码输入字段 -->
-                        <el-input v-model="loginForm.captcha"></el-input>
-                    </el-form-item>
-                    <el-form-item>
-                        <el-col :span="24" style="text-align: center;">
-                            <!-- 使用el-col布局来水平居中按钮 -->
-                            <el-button type="primary" @click="login">登录</el-button>
-                        </el-col>
-                    </el-form-item>
-                </el-form>
-
-
-            </el-card>
-        </el-main>
-    </el-container>
-</div>
+<body><style>
+    .demo-login-container{width: 320px; margin: 21px auto 0;}
+    .demo-login-other .layui-icon{position: relative; display: inline-block; margin: 0 2px; top: 2px; font-size: 26px;}
+</style>
+<form class="layui-form" style="align: center ;margin-top: 15%; border-width: 1px" action="loginController">
+    <div class="demo-login-container">
+        <div class="layui-form-item">
+            <div class="layui-input-wrap">
+                <div class="layui-input-prefix">
+                    <i class="layui-icon layui-icon-username"></i>
+                </div>
+                <input type="text" name="username" value="" lay-verify="required" placeholder="用户名" lay-reqtext="请填写用户名" autocomplete="off" class="layui-input" lay-affix="clear">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-input-wrap">
+                <div class="layui-input-prefix">
+                    <i class="layui-icon layui-icon-password"></i>
+                </div>
+                <input type="password" name="password" value="" lay-verify="required" placeholder="密   码" lay-reqtext="请填写密码" autocomplete="off" class="layui-input" lay-affix="eye">
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <div class="layui-row">
+                <div class="layui-col-xs7">
+                    <div class="layui-input-wrap">
+                        <div class="layui-input-prefix">
+                            <i class="layui-icon layui-icon-vercode"></i>
+                        </div>
+                        <input type="text" name="captcha" value="" lay-verify="" placeholder="验证码" lay-reqtext="请填写验证码" autocomplete="off" class="layui-input" lay-affix="clear">
+                    </div>
+                </div>
+                <div class="layui-col-xs5">
+                    <div style="margin-left: 10px;">
+                        <img src="https://www.oschina.net/action/user/captcha" onclick="this.src='https://www.oschina.net/action/user/captcha?t='+ new Date().getTime();">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="layui-form-item">
+            <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">
+            <a href="#forget" style="float: right; margin-top: 7px;">忘记密码？</a>
+        </div>
+        <div class="layui-form-item">
+            <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="demo-login">登录</button>
+        </div>
+        <div class="layui-form-item demo-login-other">
+            <label>社交账号登录</label>
+            <span style="padding: 0 21px 0 6px;">
+        <a href="javascript:;"><i class="layui-icon layui-icon-login-qq" style="color: #3492ed;"></i></a>
+        <a href="javascript:;"><i class="layui-icon layui-icon-login-wechat" style="color: #4daf29;"></i></a>
+        <a href="javascript:;"><i class="layui-icon layui-icon-login-weibo" style="color: #cf1900;"></i></a>
+      </span>
+            或 <a href="#reg">注册帐号</a>
+        </div>
+    </div>
+</form>
 
 
 <script type="text/javascript">
-
-    const vm = new Vue({ // 配置对象 options
-        // 配置选项(option)
-        el: '#app',  // element: 指定用vue来管理页面中的哪个标签区域
-        data: {
-            loginForm: {
-                username: '',
-                password: ''
-            }
-        },
-        methods: {
-            login() {
-                const that=this;
-                this.$http.get('http://localhost:8080/un/loginController', {
-                    params: {
-                        username: this.loginForm.username,
-                        password: this.loginForm.password
-                    }
-                })
-                    .then(response => {
-                        if (response.data.success) {
-                            // 根据后端返回的重定向URL来跳转
-                           window.location.href ='index.jsp'
-                        } else {
-                            // 处理其他响应或错误
-                            this.$message.error(response.body.msg);
-                        }
-                    })
-                    .catch(error => {
-                    });
-            }
-        }
-    })
+    var msg="${requestScope.msg}";
+    if(msg!=""){
+        layer.alert(msg);
+        msg="";
+    }
 </script>
-
 </body>
 
 </html>

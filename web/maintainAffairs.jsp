@@ -12,8 +12,8 @@
 <html>
 <head>
   <title>Insert title here</title>
-  <link href="css/layui.css" rel="stylesheet">
-  <script src="layui.js"></script>
+  <link href="layui/css/layui.css" rel="stylesheet">
+  <script src="layui/layui.js"></script>
 </head>
 
 <body><br>
@@ -22,10 +22,9 @@
   List<Affair> list = (ArrayList<Affair>) request
           .getAttribute("affairList");
 %>
-<h1 align="center"><%=sortName%></h1>
+<h1 align="center">管理员维护</h1>
 
-<table border="1px" cellspacing="0" cellpadding="10" align="center"
-       width="90%">
+<table border="1px" cellspacing="0" cellpadding="10" align="center"  action="deleteAffairController" width="90%">
   <tr bgcolor="#77A2E9">
     <td width="10%">
       <div align="center">
@@ -82,7 +81,7 @@
         <i class="layui-icon layui-icon-delete" style="font-size: 20px; color: #1E9FFF;"></i>
         [
         <a onclick="return window.confirm('对这条事务的评论也将全部被删除，确认删除吗？');"
-           href="?affairId=<%=affair.getAffairId()%>&sortId=<%=affair.getSortId()%>">删除</a>]
+           href="deleteAffairController?affairId=<%=affair.getAffairId()%>" >删除</a>]
       </div>
     </td>
   </tr>
@@ -91,6 +90,19 @@
   %>
 
 </table>
+<script type="text/javascript">
+  var msg="${requestScope.msg}";
+  if(msg!=""){
+    layer.msg(msg);
+  }
+</script>
+<script type="text/javascript">
+  function setSessionData(element) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "setUrl?url="+element.getAttribute("href"), true);
+    xhr.send();
+  }
+</script>
 </body>
 
 </html>

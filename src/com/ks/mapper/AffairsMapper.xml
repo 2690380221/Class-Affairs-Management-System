@@ -24,9 +24,9 @@
         SELECT * FROM affair where affairId=#{affairId}
     </select>
 
-    <update id="update" parameterType="Map">
+    <update id="update" parameterType="com.ks.bean.Affair">
         UPDATE affair
-        SET title = #{affair.title}, content = #{affair.content}, bfTime = NOW(), sortId = #{affair.sortId}
+        SET title = #{title}, content = #{content}, bfTime = NOW(), sortId = #{sortId}
         WHERE affairId = #{affairId}
     </update>
 
@@ -46,19 +46,17 @@
         ORDER BY affairId ASC;
     </select>
 
-    <select id="searchByConditions" resultType="com.ks.bean.Affair">
+    <select id="searchByConditions" parameterType="com.ks.bean.Query" resultType="com.ks.bean.Affair">
         SELECT *
-        FROM affair
-        <where>
+        FROM affair a where 1=1
             <if test="title != null">
-                AND title = #{title}
+                AND a.title  like #{title}
             </if>
-            <if test="sort != null">
-                AND sort = #{sort}
+            <if test="sortId != 0">
+                AND a.sortId = #{sortId}
             </if>
             <if test="time != null">
-                AND time &lt; #{time}
+                AND a.bfTime &lt; #{time}
             </if>
-        </where>
     </select>
 </mapper>

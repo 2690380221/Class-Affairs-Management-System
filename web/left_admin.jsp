@@ -10,23 +10,19 @@
 <html>
 <head>
     <title>Make a choice please</title>
-    <link href="//unpkg.com/layui@2.7.6/dist/css/layui.css" rel="stylesheet">
-    <script src="//unpkg.com/layui@2.7.6/dist/layui.js"></script>
-    <style type="text/css">
-        <!--
-        .STYLE1 {font-family: "宋体"}
-        -->
+    <link href="layui/css/layui.css" rel="stylesheet">
+    <script src="layui/layui.js"></script>
 
-    </style>
 
 </head>
 <body>
 
 
-<ul style="height:100% " class="layui-nav layui-nav-tree" lay-filter="test">
+<ul style="height:100%;text-align: center" class="layui-nav layui-nav-tree" lay-filter="test" >
     <!-- 侧边导航: <ul class="layui-nav layui-nav-tree layui-nav-side"> -->
-    <li  class="layui-nav-item"><a href="sortController" target="mainFrame" onclick="setSessionData(this)">班级事务发布</a></li>
     <li  class="layui-nav-item"><a href="maintainAffairsController" target="mainFrame" onclick="setSessionData(this)">班级事务维护</a></li>
+    <li  class="layui-nav-item"><a href="maintainAffairsController" target="mainFrame" onclick="setSessionData(this)">班级成员  维护</a></li>
+    <li  class="layui-nav-item"><a href="sortController" target="mainFrame" onclick="setSessionData(this)">班级事务发布</a></li>
     <li  class="layui-nav-item"><a href="query.jsp" target="mainFrame" onclick="setSessionData(this)">班级事务查询</a></li>
     <li  class="layui-nav-item layui-nav-itemed"><a href="javascript:;">班级事务浏览</a>
         <dl class="layui-nav-child">

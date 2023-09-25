@@ -26,7 +26,8 @@ public class ViewAffairController extends HttpServlet {
         request.setAttribute("commentList",commentService.getCommentList(affairId));
         request.setAttribute("affair",affair);
         request.setAttribute("sortName",sortName);
-
+        request.getRequestDispatcher("viewAffair.jsp").forward(request,
+                response);
 
     }
 }

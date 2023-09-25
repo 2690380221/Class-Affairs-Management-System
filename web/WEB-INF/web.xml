@@ -89,5 +89,32 @@
         <servlet-name>ViewAffairController</servlet-name>
         <url-pattern>/viewAffairController</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteAffairController</servlet-name>
+        <servlet-class>com.ks.controller.DeleteAffairController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteAffairController</servlet-name>
+        <url-pattern>/deleteAffairController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateAffairController</servlet-name>
+        <servlet-class>com.ks.controller.UpdateAffairController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateAffairController</servlet-name>
+        <url-pattern>/updateAffairController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddCommentController</servlet-name>
+        <servlet-class>com.ks.controller.AddCommentController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddCommentController</servlet-name>
+        <url-pattern>/addCommentController</url-pattern>
+    </servlet-mapping>
 </web-app>
 

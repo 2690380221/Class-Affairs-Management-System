@@ -10,8 +10,8 @@
 <html>
 <head><meta charset="utf-8">
     <title>Inset title here</title>
-    <link href="//unpkg.com/layui@2.7.6/dist/css/layui.css" rel="stylesheet">
-    <script src="//unpkg.com/layui@2.7.6/dist/layui.js"></script>
+    <link href="layui/css/layui.css" rel="stylesheet">
+    <script src="layui/layui.js"></script>
     <style>
         /* 设置页面高度为100vh，垂直居中显示 */
         body, html {
@@ -36,6 +36,12 @@
 </head>
 
 <body>
+<script type="text/javascript">
+    var msg="${requestScope.message}";
+    if(msg!=""){
+        layer.msg(msg);
+    }
+</script>
 <br>
 <%--<div text-align="center">--%>
 <%--    <h3>--%>
@@ -58,21 +64,21 @@
         <div class="layui-form-item">
             <label class="layui-form-label">关键字查询</label>
             <div class="layui-input-block">
-                <input type="text" name="title" required  lay-verify="required" placeholder="请输入关键字" autocomplete="off" class="layui-input">
+                <input type="text" name="title" lay-verify=""  required placeholder="请输入关键字" autocomplete="off" class="layui-input">
             </div>
         </div>
-        <div class="layui-form-item">
 
+        <div class="layui-form-item">
             <label class="layui-form-label">时间查询</label>
             <div class="layui-input-block">
-                <input type="text" class="layui-input" id="test1" >
+                <input type="text" class="layui-input" required id="test1" name="time">
             </div>
-
         </div>
+
         <div class="layui-form-item">
             <label class="layui-form-label">事务类别号</label>
             <div class="layui-input-block">
-                <select name="city" lay-verify="required">
+                <select required name="sort" lay-verify="" >
                     <option value=""></option>
                     <option value="0">全部事务</option>
                     <option value="1">学习竞赛</option>
@@ -95,19 +101,18 @@
 
 
 </body>
-<script>
-    //Demo
-    layui.use('form', function(){
-        var form = layui.form;
+<%--<script>--%>
+<%--    //Demo--%>
+<%--    layui.use('form', function(){--%>
+<%--        var form = layui.form;--%>
 
-        //提交
-        form.on('submit(formDemo)', function(data){
-            layer.msg(JSON.stringify(data.field));
-            return false;
-        });
-    });
-</script>
-<script src="/static/build/layui.js"></script>
+<%--        //提交--%>
+<%--        form.on('submit(formDemo)', function(data){--%>
+<%--            // layer.msg(JSON.stringify(data.field));--%>
+<%--            return false;--%>
+<%--        });--%>
+<%--    });--%>
+<%--</script>--%>
 <script>
     layui.use('laydate', function(){
         var laydate = layui.laydate;
