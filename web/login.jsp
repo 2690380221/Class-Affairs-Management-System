@@ -56,7 +56,7 @@
         </div>
         <div class="layui-form-item">
             <input type="checkbox" name="remember" lay-skin="primary" title="记住密码">
-            <a href="#forget" style="float: right; margin-top: 7px;">忘记密码？</a>
+            <a href="#" style="float: right; margin-top: 7px;"  title="联系管理员修改密码">忘记密码？</a>
         </div>
         <div class="layui-form-item">
             <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="demo-login">登录</button>
@@ -68,7 +68,7 @@
         <a href="javascript:;"><i class="layui-icon layui-icon-login-wechat" style="color: #4daf29;"></i></a>
         <a href="javascript:;"><i class="layui-icon layui-icon-login-weibo" style="color: #cf1900;"></i></a>
       </span>
-            或 <a href="#reg">注册帐号</a>
+             <a href="#"  title="联系管理员加入班级">没有账号?</a>
         </div>
     </div>
 </form>

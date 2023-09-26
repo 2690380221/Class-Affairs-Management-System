@@ -17,4 +17,8 @@
         SELECT * FROM comment
         WHERE affairId = #{affairId}
     </select>
+
+    <delete id="deleteByUserId" parameterType="int">
+        DELETE FROM comment WHERE userId = #{uId}
+    </delete>
 </mapper>

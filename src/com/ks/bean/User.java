@@ -1,7 +1,15 @@
 package com.ks.bean;
 
 public class User {
+    public User() {
+    }
 
+    public User(int uId, String uName, String uPwd, int uType) {
+        this.uId = uId;
+        this.uName = uName;
+        this.uPwd = uPwd;
+        this.uType = uType;
+    }
 
     public int getuId() {
         return uId;
@@ -34,6 +42,7 @@ public class User {
     public void setuType(int uType) {
         this.uType = uType;
     }
+
     private int uId;
     private String uName;
     private String uPwd;

@@ -12,4 +12,33 @@
     <select id="getNameById" parameterType="int" resultType="String">
         select uName from user where uId = #{id}
     </select>
+
+    <select id="userList" resultType="com.ks.bean.User" parameterType="int">
+        select * from user where uType=1 or uId=#{uid}
+    </select>
+
+    <insert id="addUser" parameterType="com.ks.bean.User" >
+        INSERT INTO user (uId, uName, uPwd, uType)
+        VALUES (#{uId}, #{uName}, #{uPwd},#{uType})
+    </insert>
+
+    <delete id="deleteUser" parameterType="int">
+        DELETE FROM user WHERE uId = #{uId}
+    </delete>
+
+    <update id="reSorting" parameterType="int">
+        UPDATE user
+        SET uId = uId - 1
+        WHERE uId > #{uId}
+    </update>
+
+    <select id="getUser" resultType="com.ks.bean.User" parameterType="int">
+        select * from user where uId=#{uid}
+    </select>
+
+    <update id="updateUser" parameterType="com.ks.bean.User">
+        UPDATE user
+        SET uName = #{uName}, uType = #{uType}, uPwd = #{uPwd}
+        WHERE uId = #{uId}
+    </update>
 </mapper>

@@ -11,4 +11,6 @@ public interface CommentMapper {
     public int save(Comment comment);
 
     public List<Comment> getCommentList(int affairId);
+
+    public int deleteByUserId(int uId);
 }

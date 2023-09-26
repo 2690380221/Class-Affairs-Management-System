@@ -28,9 +28,9 @@
 <br>
 
 <div align="center">
-    班级事务发布
-    <p>
-    <form  class="layui-form" method="post" action="addAffairsController" style="">
+    <p style="font-size: 30px">事务发布</p>
+
+    <form  class="layui-form" method="post" action="addAffairsController" style="padding-top: 20px">
 
     <div class="layui-form-item" style="width: 30%">
         <label class="layui-form-label">事务标题：</label>

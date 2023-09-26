@@ -2,7 +2,8 @@
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.ks.bean.Comment" %>
-<%@ page import="com.ks.service.LoginService" %><%--
+<%@ page import="com.ks.service.UserService" %>
+<%@ page import="com.ks.service.UserService" %><%--
   登录后的主界面，包括左边的导航栏和右边的业务处理块
   Created by IntelliJ IDEA.
   User: 26903
@@ -32,7 +33,7 @@
     String sortName = (String) request.getAttribute("sortName");
     List<Comment> commentList = (ArrayList<Comment>) request
             .getAttribute("commentList");
-    LoginService loginService=new LoginService();
+    UserService userService =new UserService();
 
 %>
 
@@ -81,7 +82,7 @@
     %>
 
     <hr align="left" width="80%">
-    <font size="2" color="0000ff"><%= loginService.getNameById(comment.getUserId()) %> 评论
+    <font size="2" color="0000ff"><%= userService.getNameById(comment.getUserId()) %> 评论
     </font>
     <p></p>
     <font size="3"><%=comment.getContent() %>

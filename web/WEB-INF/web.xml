@@ -73,12 +73,12 @@
     </servlet-mapping>
 
     <servlet>
-        <servlet-name>ModifyAffairController</servlet-name>
-        <servlet-class>com.ks.controller.ModifyAffairController</servlet-class>
+        <servlet-name>MaintainUserController</servlet-name>
+        <servlet-class>com.ks.controller.MaintainUserController</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ModifyAffairController</servlet-name>
-        <url-pattern>/modifyAffairController</url-pattern>
+        <servlet-name>MaintainUserController</servlet-name>
+        <url-pattern>/maintainUserController</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -115,6 +115,33 @@
     <servlet-mapping>
         <servlet-name>AddCommentController</servlet-name>
         <url-pattern>/addCommentController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AddUserController</servlet-name>
+        <servlet-class>com.ks.controller.AddUserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>AddUserController</servlet-name>
+        <url-pattern>/addUserController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteUserController</servlet-name>
+        <servlet-class>com.ks.controller.DeleteUserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteUserController</servlet-name>
+        <url-pattern>/deleteUserController</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>UpdateUserController</servlet-name>
+        <servlet-class>com.ks.controller.UpdateUserController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>UpdateUserController</servlet-name>
+        <url-pattern>/updateUserController</url-pattern>
     </servlet-mapping>
 </web-app>
 

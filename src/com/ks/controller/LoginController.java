@@ -1,10 +1,8 @@
 package com.ks.controller;
 
-import com.ks.bean.Affair;
 import com.ks.bean.Sort;
 import com.ks.bean.User;
-import com.ks.service.AffairsService;
-import com.ks.service.LoginService;
+import com.ks.service.UserService;
 import com.ks.service.SortService;
 
 import javax.servlet.ServletException;
@@ -16,13 +14,14 @@ import java.util.List;
 
 public class LoginController extends HttpServlet {
 
-    private LoginService loginService = new LoginService();
+    private UserService userService;
 
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         doPost(req, resp);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        userService =new UserService();
         // 从前端接收表单数据
         String uname = request.getParameter("username");
         String upwd = request.getParameter("password");
@@ -36,7 +35,7 @@ public class LoginController extends HttpServlet {
 
         System.out.println("name:"+uname);
         System.out.println("pwd:"+upwd);
-        User user = loginService.login(uname, upwd);
+        User user = userService.login(uname, upwd);
         System.out.println("uid:" + user.getuId());
         if (user.getuId() >= 1) {//登录成功
             request.getSession().setAttribute("user", user);

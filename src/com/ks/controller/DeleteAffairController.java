@@ -35,7 +35,6 @@ public class DeleteAffairController extends HttpServlet {
             //为跳转maintain.jap准备
             List<Affair>list=affairsService.affairsList();
             req.setAttribute("affairList",list);
-
             req.setAttribute("msg","删除成功");
             req.getRequestDispatcher("maintainAffairs.jsp").forward(req,resp);
             System.out.println("删除成功");

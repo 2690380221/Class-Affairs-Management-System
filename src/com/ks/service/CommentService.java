@@ -27,4 +27,8 @@ public class CommentService {
     public List<Comment> getCommentList(int affairId) {
         return commentMapper.getCommentList(affairId);
     }
+
+    public boolean deleteByUserId(int uId) {
+        return commentMapper.deleteByUserId(uId)>=0;
+    }
 }
