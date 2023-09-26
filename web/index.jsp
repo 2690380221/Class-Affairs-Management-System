@@ -12,7 +12,7 @@
 </head>
 <%
     String url = (String) session.getAttribute("url");
-    if(url==null)url="main.jsp";
+    if(url==null)url="affairList.jsp";
     String left = (String) request.getAttribute("left");
 %>
 <frameset rows="100,*" cols="*" framespacing="2" frameborder="yes" border="2" bordercolor="#000066">

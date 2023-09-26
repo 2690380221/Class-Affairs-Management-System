@@ -25,7 +25,7 @@ public class SortedAffairsController  extends HttpServlet {
             sortName="全部事务";
         }
         request.setAttribute("sortName", sortName);
-        request.setAttribute("affairList",list);
+        request.getSession().setAttribute("affairList",list);
         request.getRequestDispatcher("affairList.jsp").forward(request,response);
     }
 }

@@ -20,8 +20,8 @@
 <br>
 <%
     String sortName = (String) request.getAttribute("sortName");
-    List<Affair> list = (ArrayList<Affair>) request
-            .getAttribute("affairList");
+    if(sortName==null)sortName="事务列表";
+    List<Affair> list = (ArrayList<Affair>)request.getSession().getAttribute("affairList");
 %>
 <h1 align="center"><%=sortName%></h1>
 
