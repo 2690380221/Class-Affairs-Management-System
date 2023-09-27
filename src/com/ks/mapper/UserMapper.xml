@@ -33,7 +33,7 @@
     </update>
 
     <select id="getUser" resultType="com.ks.bean.User" parameterType="int">
-        select * from user where uId=#{uid}
+        select * from user where uId=#{uId}
     </select>
 
     <update id="updateUser" parameterType="com.ks.bean.User">
@@ -41,4 +41,8 @@
         SET uName = #{uName}, uType = #{uType}, uPwd = #{uPwd}
         WHERE uId = #{uId}
     </update>
+
+    <select id="getPwdById" resultType="String" parameterType="int">
+        select uPwd from user where uId=#{uId}
+    </select>
 </mapper>

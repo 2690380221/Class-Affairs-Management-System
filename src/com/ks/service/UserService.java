@@ -67,4 +67,8 @@ public class UserService {
     public boolean updateUser(User user) {
         return loginMapper.updateUser(user)>=0;
     }
+
+    public String getPwdById(int uId) {
+        return loginMapper.getPwdById(uId);
+    }
 }

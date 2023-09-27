@@ -143,5 +143,14 @@
         <servlet-name>UpdateUserController</servlet-name>
         <url-pattern>/updateUserController</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>ChangePwdController</servlet-name>
+        <servlet-class>com.ks.controller.ChangePwdController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>ChangePwdController</servlet-name>
+        <url-pattern>/changePwdController</url-pattern>
+    </servlet-mapping>
 </web-app>
 
