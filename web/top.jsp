@@ -8,6 +8,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <link href="layui/css/layui.css" rel="stylesheet">
+    <script src="layui/layui.js"></script>
     <title>Welcome to our hall!</title>
     <style>
         /* 设置页面高度为100vh，垂直居中显示 */
@@ -36,7 +38,24 @@
 </style>
 
 
-<body style="background-color:  rgb(238, 241, 259)">
-<div class="container"><span class="STYLE2">欢迎进入班级事务系统</span></div>
+<body>
+<ul class="layui-nav">
+    <div style="margin-left: 84%">
+        <li class="layui-nav-item">
+            <a href="">张三</a>
+        </li>
+        <li class="layui-nav-item">
+            <a href="">修改密码</a>
+        </li>
+        <li class="layui-nav-item" lay-unselect>
+            <a href="javascript:;">
+                <i class="layui-icon layui-icon-username"></i>
+            </a>
+        </li>
+
+
+    </div>
+
+</ul>
 </body>
 </html>
