@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.ks.bean.User" %><%--
   Created by IntelliJ IDEA.
   User: 26903
   Date: 2023/9/22
@@ -36,22 +36,24 @@
     }
     -->
 </style>
-
+<%
+User user= (User) request.getSession().getAttribute("user");
+%>
 
 <body>
 <ul class="layui-nav">
     <div style="margin-left: 84%">
-        <li class="layui-nav-item">
-            <a href="">张三</a>
-        </li>
-        <li class="layui-nav-item">
-            <a href="">修改密码</a>
-        </li>
         <li class="layui-nav-item" lay-unselect>
             <a href="javascript:;">
                 <i class="layui-icon layui-icon-username"></i>
+                <span><%=user.getuName()%></span>
             </a>
         </li>
+
+        <li class="layui-nav-item">
+            <a href="changeMyPwd.jsp" target="mainFrame">修改密码</a>
+        </li>
+
 
 
     </div>
