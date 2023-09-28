@@ -152,5 +152,14 @@
         <servlet-name>ChangePwdController</servlet-name>
         <url-pattern>/changePwdController</url-pattern>
     </servlet-mapping>
+
+    <servlet>
+        <servlet-name>DeleteCommentController</servlet-name>
+        <servlet-class>com.ks.controller.DeleteCommentController</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DeleteCommentController</servlet-name>
+        <url-pattern>/deleteCommentController</url-pattern>
+    </servlet-mapping>
 </web-app>
 

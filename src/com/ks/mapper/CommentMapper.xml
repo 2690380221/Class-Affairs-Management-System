@@ -21,4 +21,8 @@
     <delete id="deleteByUserId" parameterType="int">
         DELETE FROM comment WHERE userId = #{uId}
     </delete>
+
+    <delete id="deleteByCommentId" parameterType="int">
+        DELETE FROM comment WHERE commentId = #{commentId}
+    </delete>
 </mapper>

@@ -13,4 +13,6 @@ public interface CommentMapper {
     public List<Comment> getCommentList(int affairId);
 
     public int deleteByUserId(int uId);
+
+    public int deleteByCommentId(int commentId);
 }

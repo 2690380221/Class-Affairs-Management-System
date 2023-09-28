@@ -31,4 +31,8 @@ public class CommentService {
     public boolean deleteByUserId(int uId) {
         return commentMapper.deleteByUserId(uId)>=0;
     }
+
+    public boolean deleteByCommentId(int commentId) {
+        return commentMapper.deleteByCommentId(commentId)>0;
+    }
 }

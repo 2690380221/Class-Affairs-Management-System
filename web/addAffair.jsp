@@ -19,8 +19,7 @@
 <body>
 <%
     Sort sort = new Sort();
-    List<Sort> list = (ArrayList<Sort>) request.getSession()
-            .getAttribute("sortList");
+    List<Sort> list = (ArrayList<Sort>) request.getSession().getAttribute("sortList");
 
 %>
 
@@ -64,7 +63,7 @@
     <div class="layui-form-item" style="width: 60%">
 
         <hr class="ws-space-16">
-        <textarea name="content" placeholder="主体内容" class="layui-textarea" style="width: 60%;box-shadow: 1px 1px 1px 1px  #999;height: 40%"></textarea>
+        <textarea name="content" placeholder="主体内容" class="layui-textarea" style="width: 60%;box-shadow: 1px 1px 1px 1px  #999;height: 40%" required></textarea>
     </div>
 
     <div class="layui-form-item">

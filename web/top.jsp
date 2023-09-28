@@ -42,11 +42,11 @@ User user= (User) request.getSession().getAttribute("user");
 
 <body>
 <ul class="layui-nav">
-    <div style="margin-left: 84%">
+    <div style="margin-left: 80%">
         <li class="layui-nav-item" lay-unselect>
-            <a href="javascript:;">
-                <i class="layui-icon layui-icon-username"></i>
-                <span><%=user.getuName()%></span>
+            <a href="login.jsp" target="_blank">
+                <i class="layui-icon layui-icon-username" ></i>
+                <span>退出登录</span>
             </a>
         </li>
 

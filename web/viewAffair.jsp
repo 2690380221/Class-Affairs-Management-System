@@ -3,7 +3,8 @@
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.ks.bean.Comment" %>
 <%@ page import="com.ks.service.UserService" %>
-<%@ page import="com.ks.service.UserService" %><%--
+<%@ page import="com.ks.service.UserService" %>
+<%@ page import="com.ks.bean.User" %><%--
   登录后的主界面，包括左边的导航栏和右边的业务处理块
   Created by IntelliJ IDEA.
   User: 26903
@@ -34,7 +35,7 @@
     List<Comment> commentList = (ArrayList<Comment>) request
             .getAttribute("commentList");
     UserService userService =new UserService();
-
+    User user= (User) request.getSession().getAttribute("user");
 %>
 
 <table border="0px" cellspacing="0" cellpadding="10" align="center"
@@ -85,9 +86,17 @@
     <font size="2" color="0000ff"><%= userService.getNameById(comment.getUserId()) %> 评论
     </font>
     <p></p>
-    <font size="3"><%=comment.getContent() %>
-    </font>
+    <font size="3"><%=comment.getContent() %> </font>
     <%
+    if(comment.getUserId()==user.getuId()||user.getuType()==0){
+    %>
+    <div align="right">
+        <i class="layui-icon layui-icon-delete" style="font-size: 20px; color: #1E9FFF;"></i>
+        [
+        <a onclick="return window.confirm('确认删除该评论吗?');"
+           href="deleteCommentController?commentId=<%=comment.getCommentId()%>&affairId=<%=affair.getAffairId()%>" >删除</a>]
+    </div>
+    <%}
             }
         }
     %>
