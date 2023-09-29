@@ -14,6 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * login.jsp 点击登录交给此 servlet
+ * 根据登录的人是否是管理员修改index.jsp的左侧边栏
+ */
 public class LoginController extends HttpServlet {
 
     private UserService userService;

@@ -13,6 +13,10 @@ import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 点击页面左上角的修改密码后跳转到的 changeMyPwd.jsp 里点击修改后交付
+ * 跳转到 changeMyPwd.jsp
+ */
 public class ChangePwdController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         User user = (User) req.getSession().getAttribute("user");
@@ -37,13 +41,11 @@ public class ChangePwdController extends HttpServlet {
                 AffairsService affairsService=new AffairsService();
                 List<Affair> affairList=affairsService.affairsList();
                 req.getSession().setAttribute("affairList",affairList);
-
-                req.getRequestDispatcher("changeMyPwd.jsp").forward(req, resp);
             }
             else{
                 req.setAttribute("msg", "修改失败");
-                req.getRequestDispatcher("changeMyPwd.jsp").forward(req, resp);
             }
+            req.getRequestDispatcher("changeMyPwd.jsp").forward(req, resp);
         }
 
     }

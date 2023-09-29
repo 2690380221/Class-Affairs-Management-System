@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.List;
 
 /**
- * 点击侧边栏 事务维护时 获取事务列表
+ * 管理员点击侧边栏 事务维护时 获取事务列表
  */
 public class MaintainAffairsController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {

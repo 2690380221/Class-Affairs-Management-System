@@ -39,10 +39,9 @@ public class UpdateAffairController extends HttpServlet {
             request.setAttribute("msg","修改成功");
             List<Affair> list=new AffairsService().affairsList();
             request.setAttribute("affairList",list);
-            request.getRequestDispatcher("maintainAffairs.jsp").forward(request,response);
         }else {
             request.setAttribute("msg","修改失败");
-            request.getRequestDispatcher("maintainAffairs.jsp").forward(request,response);
         }
+        request.getRequestDispatcher("maintainAffairs.jsp").forward(request,response);
     }
 }

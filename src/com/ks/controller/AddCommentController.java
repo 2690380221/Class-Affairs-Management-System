@@ -13,6 +13,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 在 viewAffair.jsp 界面下的表单点击发布评论后交给此servlet
+ * 成功和失败都跳转到 viewAffair.jsp
+ */
 public class AddCommentController extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int affairId= Integer.parseInt(req.getParameter("affairId"));

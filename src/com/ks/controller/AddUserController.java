@@ -10,6 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 管理员在 addUser.jsp 界面点击提交
+ * 跳转到 maintainUser.jsp 查看添加操作后的用户列表
+ */
 public class AddUserController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 

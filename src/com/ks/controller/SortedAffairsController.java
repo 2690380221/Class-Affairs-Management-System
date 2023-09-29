@@ -11,6 +11,9 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * 点击侧边栏的事务查看获取事务列表
+ */
 public class SortedAffairsController  extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         AffairsService affairsService=new AffairsService();

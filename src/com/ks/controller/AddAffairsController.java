@@ -9,6 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 在 addAffair.jsp 的表单点击提交后交给此servlet
+ * 成功或者失败都跳转到 addAffair.jsp 的表单
+ */
 public class AddAffairsController extends HttpServlet {
     public void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException{
         Affair aff=new Affair();
@@ -33,12 +37,11 @@ public class AddAffairsController extends HttpServlet {
             System.out.println("添加成功");
             req.setAttribute("message", "添加成功");
 //            req.setCharacterEncoding("UTF-8");
-
-            req.getRequestDispatcher("addAffair.jsp").forward(req, resp);
         }else {
             System.out.println("添加失败");
             req.setAttribute("message", "添加失败");
         }
+        req.getRequestDispatcher("addAffair.jsp").forward(req, resp);
 
     }
 }

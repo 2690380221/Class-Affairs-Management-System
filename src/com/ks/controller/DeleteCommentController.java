@@ -8,6 +8,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+/**
+ * 在 viewAffair.jsp 点击删除后交至此
+ * 转发给viewAffairController以跳转 viewAffair.jsp
+ */
 public class DeleteCommentController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         int commentId= Integer.parseInt(req.getParameter("commentId"));
