@@ -42,21 +42,22 @@ User user= (User) request.getSession().getAttribute("user");
 
 <body>
 <ul class="layui-nav">
-    <div style="margin-left: 80%">
-        <li class="layui-nav-item" lay-unselect>
-            <a href="login.jsp" target="_blank">
-                <i class="layui-icon layui-icon-username" ></i>
-                <span>退出登录</span>
-            </a>
-        </li>
+    <div>
+        <div >
+            <span style="font-size: 26px;margin-right: 70%">班级事务管理系统</span>
+                <li class="layui-nav-item" lay-unselect>
+                    <a href="login.jsp" target="_blank">
+                        <i class="layui-icon layui-icon-username" ></i>
+                        <span>退出登录</span>
+                    </a>
+                </li>
 
-        <li class="layui-nav-item">
-            <a href="changeMyPwd.jsp" target="mainFrame">修改密码</a>
-        </li>
+                <li class="layui-nav-item">
+                    <a href="changeMyPwd.jsp" target="mainFrame">修改密码</a>
+                </li>
 
+        </div></div>
 
-
-    </div>
 
 </ul>
 </body>

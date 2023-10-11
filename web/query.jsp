@@ -71,14 +71,14 @@
         <div class="layui-form-item">
             <label class="layui-form-label">时间查询</label>
             <div class="layui-input-block">
-                <input type="text" class="layui-input" required id="test1" name="time">
+                <input type="text" class="layui-input"  id="test1" name="time">
             </div>
         </div>
 
         <div class="layui-form-item">
             <label class="layui-form-label">事务类别号</label>
             <div class="layui-input-block">
-                <select required name="sort" lay-verify="" >
+                <select  name="sort" lay-verify="required" >
                     <option value=""></option>
                     <option value="0">全部事务</option>
                     <option value="1">学习竞赛</option>

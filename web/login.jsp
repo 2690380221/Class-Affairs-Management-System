@@ -76,7 +76,7 @@
 
 <script type="text/javascript">
     var msg="${requestScope.msg}";
-    if(msg!=""){
+    if(msg!==""){
         layer.alert(msg);
         msg="";
     }

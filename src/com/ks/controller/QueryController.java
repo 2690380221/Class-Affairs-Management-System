@@ -41,7 +41,7 @@ public class QueryController extends HttpServlet {
 
         List<Affair> results = affairsService.searchByConditions(query);
         if(results.size()>0){
-            request.setAttribute("affairList",results);
+            request.getSession().setAttribute("affairList",results);
             request.setAttribute("sortName","查询结果");
             request.getRequestDispatcher("affairList.jsp").forward(request,response);
         }else {
