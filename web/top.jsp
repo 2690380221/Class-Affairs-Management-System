@@ -44,7 +44,7 @@ User user= (User) request.getSession().getAttribute("user");
 <ul class="layui-nav">
     <div>
         <div >
-            <span style="font-size: 26px;margin-right: 70%">班级事务管理系统</span>
+            <span style="font-size: 26px;margin-right: 60%">班级事务管理系统</span>
                 <li class="layui-nav-item" lay-unselect>
                     <a href="login.jsp" target="_blank">
                         <i class="layui-icon layui-icon-username" ></i>

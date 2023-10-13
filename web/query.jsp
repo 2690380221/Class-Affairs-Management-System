@@ -43,20 +43,7 @@
     }
 </script>
 <br>
-<%--<div text-align="center">--%>
-<%--    <h3>--%>
-<%--        班级事务查询--%>
-<%--    </h3>--%>
-<%--    <br>--%>
-<%--    <form method="post" action="queryController" style="">--%>
-<%--        <p></p>--%>
-<%--        请输入查询关键字：--%>
-<%--        <input type="text" size="40" name="keyTitle">--%>
-<%--        <p></p>--%>
-<%--        <input type="submit" value="查询">--%>
 
-<%--    </form>--%>
-<%--</div>--%>
 
 <div class="container" style="height: 350px;width: 500px">
 
@@ -101,18 +88,6 @@
 
 
 </body>
-<%--<script>--%>
-<%--    //Demo--%>
-<%--    layui.use('form', function(){--%>
-<%--        var form = layui.form;--%>
-
-<%--        //提交--%>
-<%--        form.on('submit(formDemo)', function(data){--%>
-<%--            // layer.msg(JSON.stringify(data.field));--%>
-<%--            return false;--%>
-<%--        });--%>
-<%--    });--%>
-<%--</script>--%>
 <script>
     layui.use('laydate', function(){
         var laydate = layui.laydate;
